@@ -1,3 +1,11 @@
-
-let pokemonList=[{name: "Bulbasure"},{height: "7"},{type: ["grass","poison"]},{name: "Ivysaur"},{height: "1"},{type: ["monster","grass"]},{name: "Venusaur"},{height: "2"},{type: ["monster","grass"]}];
-
+let pokemonList = [
+  { name: "Bulbasure" },
+  { height: 7 },
+  { types: ["grass", "poison"] },
+  { name: "Ivysaur" },
+  { height: 1 },
+  { types: ["monster", "grass"] },
+  { name: "Venusaur" },
+  { height: 2 },
+  { types: ["monster", "grass"] },
+];
