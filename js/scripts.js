@@ -1,5 +1,3 @@
- 
-alert('Hello World');
 
-let favoriteFood = 'Mexian Food';
-document.write(favoriteFood);
+let pokemonList=[{name: "Bulbasure"},{height: "7"},{type: ["grass","poison"]}];
+
