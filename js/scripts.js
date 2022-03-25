@@ -52,6 +52,10 @@ for (let i = 0; i < pokemonList.length; i++) {
   );
   document.write(" Types: " + pokemonList[i].types[0]);
 
+  //if more than one type, display it
+  for (let t = 1; t < pokemonList[i]["types"].length; t++)
+    document.write(", " + pokemonList[i].types[t]);
+
   //Conditional checks if the height is above a certain value.
 
   if (pokemonList[i].height > 1.7) {
