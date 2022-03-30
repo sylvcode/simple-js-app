@@ -53,16 +53,21 @@ let pokemonRepository = (function () {
     return pokemonList;
   }
 
-  //adding add Function to the PokemonList
+  // pokemonRepository add Function only if pokemon is an Object
   function add(pokemon) {
-    pokemonList.push(pokemon);
+    if (typeof pokemon === Object) {
+      pokemonList.push(pokemon);
+    }
   }
+
   //returning getAll and add in one {}
   return {
     getAll: getAll,
     add: add,
   };
 })();
+
+pokemonRepository.add(null);
 
 // forEach() Loop
 pokemonRepository.getAll().forEach(function (pokemon) {
