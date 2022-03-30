@@ -1,3 +1,4 @@
+main,
 body {
   background: linear-gradient(
     171.8deg,
@@ -27,4 +28,5 @@ h1 {
 
 p {
   font-size: medium;
+  line-height: 1.5;
 }
