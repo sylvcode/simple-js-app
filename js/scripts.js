@@ -67,6 +67,7 @@ let pokemonRepository = (function () {
   };
 })();
 
+// test pokemonRepository add function discards none objects
 pokemonRepository.add(null);
 
 // forEach() Loop
