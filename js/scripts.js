@@ -45,20 +45,15 @@ let pokemonList = [
     types: ["flying"],
   },
 ];
-// Loop that iterates over each item in pokemonList
-for (let i = 0; i < pokemonList.length; i++) {
+
+// forEach() Loops
+pokemonList.forEach(function (pokemon) {
   document.write(
-    " Name: " + pokemonList[i].name + " (Height: " + pokemonList[i].height + "."
+    " Name: " +
+      pokemon.name +
+      " Height: " +
+      pokemon.height +
+      " Types: " +
+      pokemon.types
   );
-  document.write(" Types: " + pokemonList[i].types[0]);
-
-  //if more than one type, display it
-  for (let t = 1; t < pokemonList[i]["types"].length; t++)
-    document.write(", " + pokemonList[i].types[t]);
-
-  //Conditional checks if the height is above a certain value.
-
-  if (pokemonList[i].height > 1.7) {
-    document.write("<h4> - Wow that's big!</h4>");
-  }
-}
+});
