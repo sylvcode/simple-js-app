@@ -1,6 +1,7 @@
-// wrap in IIFE format
+// wrapping array in IIFE to avoid accidentally accessing the global state.
+//created pokemonRepo variable to hold what my IIFE will return
 let pokemonRepository = (function () {
-  // array list including nested objects
+  // the original array list including nested objects
   let pokemonList = [
     {
       name: "Bulbasure",
@@ -48,6 +49,7 @@ let pokemonRepository = (function () {
       types: ["flying"],
     },
   ];
+
   // getAll Function returning PokemonList
   function getAll() {
     return pokemonList;
@@ -55,12 +57,16 @@ let pokemonRepository = (function () {
 
   // pokemonRepository add Function only if pokemon is an Object
   function add(pokemon) {
-    if (typeof pokemon === Object) {
-      pokemonList.push(pokemon);
+    if (typeof pokemon === "object") {
+      if (pokemon.name && pokemon.height && Array.isArray(pokemon.types)) {
+        pokemonList.push(pokemon);
+        return;
+      }
+      console.log("pokemon not right object type");
     }
   }
 
-  //returning getAll and add in one {}
+  //IIFE returning getAll and add
   return {
     getAll: getAll,
     add: add,
@@ -68,9 +74,9 @@ let pokemonRepository = (function () {
 })();
 
 // test pokemonRepository add function discards none objects
-pokemonRepository.add(null);
+pokemonRepository.add({ name: "sul", height: 8, types: ["bla"] });
 
-// forEach() Loop
+// forEach() Loop / what HTML will display
 pokemonRepository.getAll().forEach(function (pokemon) {
   if (pokemon.height < 1.7) {
     document.write(
