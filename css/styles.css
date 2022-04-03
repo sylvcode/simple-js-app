@@ -62,7 +62,7 @@ p {
 
 .card:hover {
   color: rgb(238, 156, 167) 13.8%;
-  transition: color 1s;
+  transition: color 10s;
 }
 .card:hover:before,
 .card:hover:after {
@@ -85,7 +85,7 @@ p {
   z-index: -1;
   top: -1%;
   left: -2%;
-  animation: spin 2.5s linear infinite;
+  animation: spin 3.5s linear infinite;
 }
 
 .card::after {
