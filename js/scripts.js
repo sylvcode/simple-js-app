@@ -78,8 +78,15 @@ pokemonRepository.add({ name: "sul", height: 8, types: ["bla"] });
 
 // forEach() Loop / what HTML will display
 pokemonRepository.getAll().forEach(function (pokemon) {
+  document.querySelector(".ul");
+  let pokemonList = document.querySelector(".pokemon-list");
+  let listItem = document.createElement("li");
+  let button = document.createElement("button");
+  button.innerText = "pokemon.name";
+  listItem.appendChild(button);
+  pokemonList.appendChild(button);
   if (pokemon.height < 1.7) {
-    document.write(
+    /*  document.write(
       "<p> Name: " +
         pokemon.name +
         " (Height: " +
@@ -87,7 +94,7 @@ pokemonRepository.getAll().forEach(function (pokemon) {
         ". Types: " +
         pokemon.types +
         ".)</p>"
-    );
+    ); */
   } else if (pokemon.height >= 1.7) {
     document.write(
       `<p>${pokemon.name} (Height: ${pokemon.height}. Types: ${pokemon.types} Wow, that's big!</p>`
