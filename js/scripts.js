@@ -50,6 +50,24 @@ let pokemonRepository = (function () {
     },
   ];
 
+  //This function has one parameter—it will represent a single Pokémon.
+  function addListItem(pokemon) {
+    document.querySelector(".ul");
+    let pokemonListCall = document.querySelector(".pokemon-list");
+    let listItem = document.createElement("li");
+
+    //setting innerText to be the Pokémon's name (forEach returns a Pokémon in each iteration).
+    let button = document.createElement("button");
+    addListItem.innerText = "pokemon.name";
+    button.classList.add("pokemon-button");
+
+    //append the button to the list item as its child.
+    listItem.appendChild(button);
+
+    //append the list item to the unordered list as its child.
+    pokemonListCall.appendChild(listItem);
+  }
+
   // getAll Function returning PokemonList
   function getAll() {
     return pokemonList;
@@ -78,13 +96,17 @@ pokemonRepository.add({ name: "sul", height: 8, types: ["bla"] });
 
 // forEach() Loop / what HTML will display
 pokemonRepository.getAll().forEach(function (pokemon) {
-  document.querySelector(".ul");
-  let pokemonList = document.querySelector(".pokemon-list");
+  /*document.querySelector(".ul");
+  let pokemonListCall = document.querySelector(".pokemon-list");
   let listItem = document.createElement("li");
+  //setting innerText to be the Pokémon's name (forEach returns a Pokémon in each iteration).
   let button = document.createElement("button");
   button.innerText = "pokemon.name";
+  button.classList.add("pokeomn-button");
+  //append the button to the list item as its child.
   listItem.appendChild(button);
-  pokemonList.appendChild(button);
+  //append the list item to the unordered list as its child.
+  pokemonListCall.appendChild(listItem): */
   if (pokemon.height < 1.7) {
     /*  document.write(
       "<p> Name: " +
@@ -96,9 +118,9 @@ pokemonRepository.getAll().forEach(function (pokemon) {
         ".)</p>"
     ); */
   } else if (pokemon.height >= 1.7) {
-    document.write(
-      `<p>${pokemon.name} (Height: ${pokemon.height}. Types: ${pokemon.types} Wow, that's big!</p>`
-    );
+    // document.write(
+    // `<p>${pokemon.name} (Height: ${pokemon.height}. Types: ${pokemon.types} Wow, that's big!</p>`
+    //   );
   }
 });
 
