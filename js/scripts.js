@@ -50,24 +50,6 @@ let pokemonRepository = (function () {
     },
   ];
 
-  //This function has one parameter—it will represent a single Pokémon.
-  function addListItem(pokemon) {
-    document.querySelector(".ul");
-    let pokemonListCall = document.querySelector(".pokemon-list");
-    let listItem = document.createElement("li");
-
-    //setting innerText to be the Pokémon's name (forEach returns a Pokémon in each iteration).
-    let button = document.createElement("button");
-    addListItem.innerText = "pokemon.name";
-    button.classList.add("pokemon-button");
-
-    //append the button to the list item as its child.
-    listItem.appendChild(button);
-
-    //append the list item to the unordered list as its child.
-    pokemonListCall.appendChild(listItem);
-  }
-
   // getAll Function returning PokemonList
   function getAll() {
     return pokemonList;
@@ -84,10 +66,26 @@ let pokemonRepository = (function () {
     }
   }
 
+  //This function has one parameter—it will represent a single Pokémon.
+  function addListItem(pokemon) {
+    document.querySelector(".ul");
+    let pokemonListCall = document.querySelector(".pokemon-list");
+    let listItem = document.createElement("li");
+    //setting innerText to be the Pokémon's name (forEach returns a Pokémon in each iteration).
+    let button = document.createElement("button");
+    addListItem.innerText = "pokemon.name";
+    button.classList.add("pokemon-button");
+    //append the button to the list item as its child.
+    listItem.appendChild(button);
+    //append the list item to the unordered list as its child.
+    pokemonListCall.appendChild(listItem);
+  }
+
   //IIFE returning getAll and add
   return {
     getAll: getAll,
     add: add,
+    addListItem: addListItem,
   };
 })();
 
@@ -96,6 +94,8 @@ pokemonRepository.add({ name: "sul", height: 8, types: ["bla"] });
 
 // forEach() Loop / what HTML will display
 pokemonRepository.getAll().forEach(function (pokemon) {
+  //outside the IIFE
+  pokemonRepository.addListItem(pokemon);
   /*document.querySelector(".ul");
   let pokemonListCall = document.querySelector(".pokemon-list");
   let listItem = document.createElement("li");
@@ -106,7 +106,7 @@ pokemonRepository.getAll().forEach(function (pokemon) {
   //append the button to the list item as its child.
   listItem.appendChild(button);
   //append the list item to the unordered list as its child.
-  pokemonListCall.appendChild(listItem): */
+  pokemonListCall.appendChild(listItem): 
   if (pokemon.height < 1.7) {
     /*  document.write(
       "<p> Name: " +
@@ -116,12 +116,12 @@ pokemonRepository.getAll().forEach(function (pokemon) {
         ". Types: " +
         pokemon.types +
         ".)</p>"
-    ); */
+    ); 
   } else if (pokemon.height >= 1.7) {
-    // document.write(
-    // `<p>${pokemon.name} (Height: ${pokemon.height}. Types: ${pokemon.types} Wow, that's big!</p>`
-    //   );
-  }
+     document.write(
+    `<p>${pokemon.name} (Height: ${pokemon.height}. Types: ${pokemon.types} Wow, that's big!</p>`
+     ); 
+  } */
 });
 
 // Loop that iterates over each item in pokemonList
