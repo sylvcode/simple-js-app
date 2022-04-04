@@ -4,15 +4,8 @@
 }
 
 body {
-  /*background: linear-gradient(
-    171.8deg,
-    rgb(238, 156, 167) 13.8%,
-    rgb(246, 204, 162) 82.6%
-  ); */
-  color: aliceblue;
-  font-size: small;
   min-height: 100vh;
-  background-color: aliceblue;
+  background: #212534;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -36,7 +29,7 @@ header {
 h1 {
   text-align: center;
   padding: 10px;
-  color: #f0a6a4;
+  color: #fff;
 }
 
 p {
@@ -45,10 +38,10 @@ p {
 }
 
 .card {
-  background: #f0a6a4;
+  background: #191c29;
   width: var(--card-width);
   height: var(--card-height);
-  padding: 3px;
+  padding: 4px;
   position: relative;
   border-radius: 6px;
   justify-content: center;
@@ -56,13 +49,14 @@ p {
   text-align: center;
   display: flex;
   font-size: 1.5em;
+  color: rgb(88 199 250 / 0%);
   cursor: pointer;
   font-family: cursive;
 }
 
 .card:hover {
-  color: rgb(238, 156, 167) 13.8%;
-  transition: color 10s;
+  color: rgb(88 199 250 / 100%);
+  transition: color 5s;
 }
 .card:hover:before,
 .card:hover:after {
@@ -77,15 +71,15 @@ p {
   border-radius: 8px;
   background-image: linear-gradient(
     var(--rotate),
-    #f0a6a4,
-    #f4bea4 43%,
-    #f4bea4
+    #5ddcff,
+    #3c67e3 43%,
+    #4e00c2
   );
   position: absolute;
   z-index: -1;
   top: -1%;
   left: -2%;
-  animation: spin 3.5s linear infinite;
+  animation: spin 2.5s linear infinite;
 }
 
 .card::after {
@@ -102,21 +96,13 @@ p {
   filter: blur(calc(var(--card-height) / 6));
   background-image: linear-gradient(
     var(--rotate),
-    #f0a6a4,
-    #f4bea4 43%,
-    #f4bea4
+    #5ddcff,
+    #3c67e3 43%,
+    #4e00c2
   );
   opacity: 1;
   transition: opacity 0.5s;
   animation: spin 2.5s linear infinite;
-}
-
-a {
-  color: #212534;
-  text-decoration: none;
-  font-family: sans-serif;
-  font-weight: bold;
-  margin-top: 2rem;
 }
 
 @keyframes spin {
@@ -126,6 +112,14 @@ a {
   100% {
     --rotate: 360deg;
   }
+}
+
+a {
+  color: #212534;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-top: 2rem;
 }
 
 .pokemon-button {
