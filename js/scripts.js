@@ -55,6 +55,21 @@ let pokemonRepository = (function () {
     return pokemonList;
   }
 
+  //This function has one parameter—it will represent a single Pokémon.
+  function addListItem(pokemon) {
+    document.querySelector(".ul");
+    let pokemonList = document.querySelector(".pokemon-list");
+    let listItem = document.createElement("li");
+    //setting innerText to be the Pokémon's name (forEach returns a Pokémon in each iteration).
+    let button = document.createElement("button");
+    button.innerText = pokemon.name;
+    button.classList.add("pokemon-button");
+    //append the button to the list item as its child.
+    listItem.appendChild(button);
+    //append the list item to the unordered list as its child.
+    pokemonList.appendChild(listItem);
+  }
+
   // pokemonRepository add Function only if pokemon is an Object
   function add(pokemon) {
     if (typeof pokemon === "object") {
@@ -66,22 +81,7 @@ let pokemonRepository = (function () {
     }
   }
 
-  //This function has one parameter—it will represent a single Pokémon.
-  function addListItem(pokemon) {
-    document.querySelector(".ul");
-    let pokemonListCall = document.querySelector(".pokemon-list");
-    let listItem = document.createElement("li");
-    //setting innerText to be the Pokémon's name (forEach returns a Pokémon in each iteration).
-    let button = document.createElement("button");
-    addListItem.innerText = "pokemon.name";
-    button.classList.add("pokemon-button");
-    //append the button to the list item as its child.
-    listItem.appendChild(button);
-    //append the list item to the unordered list as its child.
-    pokemonListCall.appendChild(listItem);
-  }
-
-  //IIFE returning getAll and add
+  //IIFE returning
   return {
     getAll: getAll,
     add: add,
