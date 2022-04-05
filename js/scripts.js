@@ -55,24 +55,31 @@ let pokemonRepository = (function () {
     return pokemonList;
   }
 
-  function showDetails(pokemon) {
-    console.log(pokemon);
-  }
-
   //This function has one parameter—it will represent a single Pokémon.
   function addListItem(pokemon) {
     document.querySelector(".ul");
+    //variables
     let pokemonList = document.querySelector(".pokemon-list");
     let listItem = document.createElement("li");
     //setting innerText to be the Pokémon's name (forEach returns a Pokémon in each iteration).
     let button = document.createElement("button");
-    button.addEventListener("click");
+
+    // adding features and format to buttons
     button.innerText = pokemon.name;
     button.classList.add("pokemon-button");
-    //append the button to the list item as its child.
+
+    // Changing DOM hierarchy
     listItem.appendChild(button);
-    //append the list item to the unordered list as its child.
     pokemonList.appendChild(listItem);
+
+    // adding event listener
+    button.addEventListener("click", function (event) {
+      showDetails(pokemon);
+    });
+  }
+  // js function that will show the objects inside the array
+  function showDetails(pokemon) {
+    console.log(pokemon);
   }
 
   // pokemonRepository add Function only if pokemon is an Object
@@ -102,45 +109,4 @@ pokemonRepository.add({ name: "sul", height: 8, types: ["bla"] });
 pokemonRepository.getAll().forEach(function (pokemon) {
   //outside the IIFE
   pokemonRepository.addListItem(pokemon);
-  /*document.querySelector(".ul");
-  let pokemonListCall = document.querySelector(".pokemon-list");
-  let listItem = document.createElement("li");
-  //setting innerText to be the Pokémon's name (forEach returns a Pokémon in each iteration).
-  let button = document.createElement("button");
-  button.innerText = "pokemon.name";
-  button.classList.add("pokeomn-button");
-  //append the button to the list item as its child.
-  listItem.appendChild(button);
-  //append the list item to the unordered list as its child.
-  pokemonListCall.appendChild(listItem): 
-  if (pokemon.height < 1.7) {
-    /*  document.write(
-      "<p> Name: " +
-        pokemon.name +
-        " (Height: " +
-        pokemon.height +
-        ". Types: " +
-        pokemon.types +
-        ".)</p>"
-    ); 
-  } else if (pokemon.height >= 1.7) {
-     document.write(
-    `<p>${pokemon.name} (Height: ${pokemon.height}. Types: ${pokemon.types} Wow, that's big!</p>`
-     ); 
-  } */
 });
-
-// Loop that iterates over each item in pokemonList
-//for (let i = 0; i < pokemonList.length; i++) {
-//document.write(
-//  " Name: " + pokemonList[i].name + " (Height: " + pokemonList[i].height + "."
-//);
-// document.write(" Types: " + pokemonList[i].types[0]);
-
-//Conditional checks if the height is above a certain value.
-
-// if (pokemonList[i].height > 1.7) {
-//   document.write("<h4> - Wow that's big!</h4>");
-// }
-//]
-//}
