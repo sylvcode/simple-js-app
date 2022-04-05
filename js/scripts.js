@@ -55,6 +55,17 @@ let pokemonRepository = (function () {
     return pokemonList;
   }
 
+  // pokemonRepository add Function only if pokemon is an Object
+  function add(pokemon) {
+    if (typeof pokemon === "object") {
+      if (pokemon.name && pokemon.height && Array.isArray(pokemon.types)) {
+        pokemonList.push(pokemon);
+        return;
+      }
+      console.log("pokemon not right object type");
+    }
+  }
+
   //This function has one parameter—it will represent a single Pokémon.
   function addListItem(pokemon) {
     document.querySelector(".ul");
@@ -77,20 +88,10 @@ let pokemonRepository = (function () {
       showDetails(pokemon);
     });
   }
+
   // js function that will show the objects inside the array
   function showDetails(pokemon) {
     console.log(pokemon);
-  }
-
-  // pokemonRepository add Function only if pokemon is an Object
-  function add(pokemon) {
-    if (typeof pokemon === "object") {
-      if (pokemon.name && pokemon.height && Array.isArray(pokemon.types)) {
-        pokemonList.push(pokemon);
-        return;
-      }
-      console.log("pokemon not right object type");
-    }
   }
 
   //IIFE returning
