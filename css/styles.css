@@ -1,6 +1,9 @@
 :root {
   --card-height: 65vh;
   --card-width: calc(var(--card-height) / 1.5);
+  --rotate: {
+    initial-value: 132deg;
+  }
 }
 
 body {
@@ -143,4 +146,5 @@ p {
   text-align: left;
   text-decoration: none;
   font-size: 18px;
+  margin-top: 5px;
 }
