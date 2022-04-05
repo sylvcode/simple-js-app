@@ -55,6 +55,10 @@ let pokemonRepository = (function () {
     return pokemonList;
   }
 
+  function showDetails(pokemon) {
+    console.log(pokemon);
+  }
+
   //This function has one parameter—it will represent a single Pokémon.
   function addListItem(pokemon) {
     document.querySelector(".ul");
@@ -62,6 +66,7 @@ let pokemonRepository = (function () {
     let listItem = document.createElement("li");
     //setting innerText to be the Pokémon's name (forEach returns a Pokémon in each iteration).
     let button = document.createElement("button");
+    button.addEventListener("click");
     button.innerText = pokemon.name;
     button.classList.add("pokemon-button");
     //append the button to the list item as its child.
@@ -86,6 +91,7 @@ let pokemonRepository = (function () {
     getAll: getAll,
     add: add,
     addListItem: addListItem,
+    showDetails: showDetails,
   };
 })();
 
