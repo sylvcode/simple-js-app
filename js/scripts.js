@@ -72,15 +72,15 @@ let pokemonRepository = (function () {
     add: add,
     addListItem: addListItem,
     showDetails: showDetails,
-    LoadList: LoadList,
+    loadList: loadList,
   };
 })();
 
 // test pokemonRepository add function discards none objects
-pokemonRepository.add({ name: "sul", height: 8, types: ["bla"] });
-
-// forEach() Loop / what HTML will display
-pokemonRepository.getAll().forEach(function (pokemon) {
-  //outside the IIFE
-  pokemonRepository.addListItem(pokemon);
+pokemonRepository.loadList().then(function () {
+  // forEach() Loop / what HTML will display
+  pokemonRepository.getAll().forEach(function (pokemon) {
+    //outside the IIFE
+    pokemonRepository.addListItem(pokemon);
+  });
 });
