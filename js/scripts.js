@@ -3,53 +3,8 @@
 //created pokemonRepo variable to hold what my IIFE will return
 let pokemonRepository = (function () {
   // the original array list including nested objects
-  let pokemonList = [
-    {
-      name: "Bulbasure",
-      height: 0.7,
-      types: ["grass", "poison"],
-    },
-    {
-      name: "Charizard",
-      height: 1.7,
-      types: ["monster", "dragon"],
-    },
-    {
-      name: "Ivysaur",
-      height: 1,
-      types: ["monster", "grass"],
-    },
-    {
-      name: "Venusaur",
-      height: 2,
-      types: ["monster", "grass"],
-    },
-    {
-      name: "Wartortle",
-      height: 1,
-      types: ["monster", "water 1"],
-    },
-    {
-      name: "Charmeleon",
-      height: 1.1,
-      types: ["monster", "dragon"],
-    },
-    {
-      name: "Butterfree",
-      height: 1.1,
-      types: ["bug"],
-    },
-    {
-      name: "Beedril",
-      height: 1,
-      types: ["bug"],
-    },
-    {
-      name: "Pidgeotto",
-      height: 1.1,
-      types: ["flying"],
-    },
-  ];
+  let pokemonList = [];
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=120';
 
   // getAll Function returning PokemonList
   function getAll() {
@@ -86,6 +41,24 @@ let pokemonRepository = (function () {
     });
   }
 
+  // Fetching Pokemon data 
+  function loadList() {
+    return fetch(apiUrl).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      json.results.forEach(function (item) {
+        let pokemon = {
+          name: item.name,
+          detailsUrl:item.Url
+        };
+        add(pokemon);
+      });
+    }).catch(function (e) {
+      console.error(e);
+    })
+    } 
+  }
+}
   // js function that will show the objects inside the array
   function showDetails(pokemon) {
     console.log(pokemon);
@@ -97,6 +70,7 @@ let pokemonRepository = (function () {
     add: add,
     addListItem: addListItem,
     showDetails: showDetails,
+    LoadList: LoadList,
   };
 })();
 
