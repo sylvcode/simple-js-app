@@ -40,7 +40,7 @@ p {
 
 /* card that will hold the buttons for each pokemon */
 
-.card {
+.container {
   background: #191c29;
   width: var(--card-width);
   height: var(--card-height);
@@ -57,17 +57,17 @@ p {
   font-family: cursive;
 }
 
-.card:hover {
+.container:hover {
   color: rgb(88 199 250 / 100%);
   transition: color 1s;
 }
-.card:hover:before,
-.card:hover:after {
+.container:hover:before,
+.container:hover:after {
   animation: none;
   opacity: 0;
 }
 
-.card::before {
+.container::before {
   content: "";
   width: 104%;
   height: 102%;
@@ -85,7 +85,7 @@ p {
   animation: spin 2.5s linear infinite;
 }
 
-.card::after {
+.container::after {
   position: absolute;
   content: "";
   top: calc(var(--card-height) / 6);
