@@ -61,6 +61,18 @@ let pokemonRepository = (function () {
       });
   }
 
+  function loadDetails(item) {
+    let url = item.detailsUrl;
+    return fetch(url)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (details) {
+
+    }
+
+  }
+
   // js function that will show the objects inside the array
   function showDetails(pokemon) {
     console.log(pokemon);
@@ -76,7 +88,7 @@ let pokemonRepository = (function () {
   };
 })();
 
-// test pokemonRepository add function discards none objects
+// Loading Data
 pokemonRepository.loadList().then(function () {
   // forEach() Loop / what HTML will display
   pokemonRepository.getAll().forEach(function (pokemon) {
