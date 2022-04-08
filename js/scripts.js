@@ -26,12 +26,6 @@ let pokemonRepository = (function () {
     return pokemonList;
   }
 
-  function showDetails(pokemon) {
-    loadDetails(pokemon).then(function () {
-      showModal(pokemon);
-    });
-  }
-
   //This function has one parameter—it will represent a single Pokémon.
   function addListItem(pokemon) {
     //variables
@@ -51,7 +45,7 @@ let pokemonRepository = (function () {
     });
   }
 
-  // Fetching Pokemon data
+  //a return key that uses fetch to GET the complete list of Pokémon
   function loadList() {
     return fetch(apiUrl)
       .then(function (response) {
@@ -64,6 +58,7 @@ let pokemonRepository = (function () {
             detailsUrl: item.Url,
           };
           add(pokemon);
+          console.log(pokemon);
         });
       })
       .catch(function (e) {
@@ -71,6 +66,8 @@ let pokemonRepository = (function () {
       });
   }
 
+  //parameter with a Pokémon object as a parameter.
+  //GET the Pokémon details using the URL from the Pokémon object in the parameter.
   function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url)
@@ -89,15 +86,21 @@ let pokemonRepository = (function () {
 
   // js function that will show the objects inside the array
 
-  function showDetails(pokemon) {
-    loadDetails(pokemon).then(function () {
-      showModal(pokemon);
+  function showDetails(item) {
+    loadDetails(item).then(function () {
+      showModal(item);
     });
   }
+
   function showModal(item) {
-    modalContainer.innerHTML = "";
-    let modal = document.createElement("div");
-    modal.classList.add("modal");
+    let modalTitle = $(".modal-title");
+    let modalBody = $(".modal-body");
+
+    let pokemonName = $("<h3>" + item.name + "</h3>");
+    let pokemonImage = $("<img class='pokemon-image'>");
+    pokemonImage.attr("src", item.imageUrl); // pokemon image attribute loaded from 'item.imageUrl'
+    let pokemonHeight = $("<p>" + "Height: " + item.height + "</p>");
+    let pokemonTypes = $("<p>" + "Types: " + item.types + "</p>");
   }
 
   //IIFE returning
