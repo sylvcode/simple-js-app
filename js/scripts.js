@@ -3,23 +3,33 @@
 //created pokemonRepo variable to hold what my IIFE will return
 let pokemonRepository = (function () {
   // the original array list including nested objects
+  let modalContainer = document.querySelector("#modalContainer");
   let pokemonList = [];
   let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=120";
+
+  // pokemonRepository add Function only if pokemon is an Object
+  function add(pokemon) {
+    if (
+      typeof pokemon === "object" &&
+      pokemon.name &&
+      "detailsUrl" &&
+      Array.isArray(pokemon.types)
+    ) {
+      pokemonList.push(pokemon);
+    } else {
+      document.write("pokemon not right object type");
+    }
+  }
 
   // getAll Function returning PokemonList
   function getAll() {
     return pokemonList;
   }
 
-  // pokemonRepository add Function only if pokemon is an Object
-  function add(pokemon) {
-    if (typeof pokemon === "object") {
-      if (pokemon.name && pokemon.height && Array.isArray(pokemon.types)) {
-        pokemonList.push(pokemon);
-        return;
-      }
-      console.log("pokemon not right object type");
-    }
+  function showDetails(pokemon) {
+    loadDetails(pokemon).then(function () {
+      showModal(pokemon);
+    });
   }
 
   //This function has one parameter—it will represent a single Pokémon.
@@ -64,18 +74,30 @@ let pokemonRepository = (function () {
   function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (details) {
-
-    }
-
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (details) {
+        item.imageUrl = details.sprites.front_default;
+        item.height = details.height;
+        item.types = details.types;
+      })
+      .catch(function (e) {
+        console.error(e);
+      });
   }
 
   // js function that will show the objects inside the array
+
   function showDetails(pokemon) {
-    console.log(pokemon);
+    loadDetails(pokemon).then(function () {
+      showModal(pokemon);
+    });
+  }
+  function showModal(item) {
+    modalContainer.innerHTML = "";
+    let modal = document.createElement("div");
+    modal.classList.add("modal");
   }
 
   //IIFE returning
