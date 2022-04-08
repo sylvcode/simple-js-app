@@ -4,7 +4,7 @@
 let pokemonRepository = (function () {
   // the original array list including nested objects
   let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=120';
+  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=120";
 
   // getAll Function returning PokemonList
   function getAll() {
@@ -41,24 +41,26 @@ let pokemonRepository = (function () {
     });
   }
 
-  // Fetching Pokemon data 
+  // Fetching Pokemon data
   function loadList() {
-    return fetch(apiUrl).then(function (response) {
-      return response.json();
-    }).then(function (json) {
-      json.results.forEach(function (item) {
-        let pokemon = {
-          name: item.name,
-          detailsUrl:item.Url
-        };
-        add(pokemon);
+    return fetch(apiUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (json) {
+        json.results.forEach(function (item) {
+          let pokemon = {
+            name: item.name,
+            detailsUrl: item.Url,
+          };
+          add(pokemon);
+        });
+      })
+      .catch(function (e) {
+        console.error(e);
       });
-    }).catch(function (e) {
-      console.error(e);
-    })
-    } 
   }
-}
+
   // js function that will show the objects inside the array
   function showDetails(pokemon) {
     console.log(pokemon);
