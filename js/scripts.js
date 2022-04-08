@@ -1,4 +1,5 @@
 // wrapping array in IIFE to avoid accidentally accessing the global state.
+
 //created pokemonRepo variable to hold what my IIFE will return
 let pokemonRepository = (function () {
   // the original array list including nested objects
@@ -68,21 +69,17 @@ let pokemonRepository = (function () {
 
   //This function has one parameter—it will represent a single Pokémon.
   function addListItem(pokemon) {
-    document.querySelector(".ul");
     //variables
     let pokemonList = document.querySelector(".pokemon-list");
-    let listItem = document.createElement("li");
+    let listpokemon = document.createElement("li");
     //setting innerText to be the Pokémon's name (forEach returns a Pokémon in each iteration).
     let button = document.createElement("button");
-
     // adding features and format to buttons
     button.innerText = pokemon.name;
     button.classList.add("pokemon-button");
-
     // Changing DOM hierarchy
-    listItem.appendChild(button);
-    pokemonList.appendChild(listItem);
-
+    listpokemon.appendChild(button);
+    pokemonList.appendChild(listpokemon);
     // adding event listener
     button.addEventListener("click", function (event) {
       showDetails(pokemon);
