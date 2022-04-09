@@ -96,7 +96,7 @@ let pokemonRepository = (function () {
   }
 
   function showModal(item) {
-    let pokemonImage = $("<img class='pokemon-image'>");
+    let pokemonImage = $("<img class='pokemon-display'>");
     pokemonImage.attr("src", item.imageUrl); // pokemon image attribute loaded from 'item.imageUrl'
   }
 
