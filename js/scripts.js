@@ -1,5 +1,11 @@
 // wrapping array in IIFE to avoid accidentally accessing the global state.
 
+function addClickEvent(button, pokeObjects) {
+  button.addEventListener("click", (event) => {
+    pokemonRepository.showDetails(pokeObjects);
+  });
+}
+
 //created pokemonRepo variable to hold what my IIFE will return
 let pokemonRepository = (function () {
   // the original array list including nested objects
@@ -16,8 +22,6 @@ let pokemonRepository = (function () {
       Array.isArray(pokemon.types)
     ) {
       pokemonList.push(pokemon);
-    } else {
-      document.write("pokemon not right object type");
     }
   }
 
@@ -27,22 +31,21 @@ let pokemonRepository = (function () {
   }
 
   //This function has one parameter—it will represent a single Pokémon.
-  function addListItem(pokemon) {
+  function addListItem(pokemonObject) {
     //variables
     let pokemonList = document.querySelector(".pokemon-list");
-    let listpokemon = document.createElement("li");
+
+    let listItem = document.createElement("li");
     //setting innerText to be the Pokémon's name (forEach returns a Pokémon in each iteration).
     let button = document.createElement("button");
     // adding features and format to buttons
-    button.innerText = pokemon.name;
+    button.innerText = pokemonObject.name;
     button.classList.add("pokemon-button");
     // Changing DOM hierarchy
-    listpokemon.appendChild(button);
-    pokemonList.appendChild(listpokemon);
+    listItem.appendChild(button);
+    pokemonList.appendChild(listItem);
     // adding event listener
-    button.addEventListener("click", function (event) {
-      showDetails(pokemon);
-    });
+    addClickEvent(button, pokemonObject);
   }
 
   //a return key that uses fetch to GET the complete list of Pokémon
@@ -93,14 +96,8 @@ let pokemonRepository = (function () {
   }
 
   function showModal(item) {
-    let modalTitle = $(".modal-title");
-    let modalBody = $(".modal-body");
-
-    let pokemonName = $("<h3>" + item.name + "</h3>");
     let pokemonImage = $("<img class='pokemon-image'>");
     pokemonImage.attr("src", item.imageUrl); // pokemon image attribute loaded from 'item.imageUrl'
-    let pokemonHeight = $("<p>" + "Height: " + item.height + "</p>");
-    let pokemonTypes = $("<p>" + "Types: " + item.types + "</p>");
   }
 
   //IIFE returning
