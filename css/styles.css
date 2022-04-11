@@ -28,7 +28,7 @@ header {
 
 h1 {
   text-align: center;
-  padding: 10px;
+
   color: #fff;
   font-family: "JetBrains Mono", monospace;
 }
@@ -141,4 +141,13 @@ p {
   position: relative;
   font-size: 18px;
   margin-top: 5px;
+}
+
+.modal-container {
+  display: none;
+}
+
+.modal-container.is-visible {
+  /* CSS for modal container - add your own desired CSS styles here */
+  display: block;
 }

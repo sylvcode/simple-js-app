@@ -51,6 +51,24 @@ let pokemonRepository = (function () {
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {});
   }
+  //showModal details
+  function showModal() {
+    let modalContainer = document.querySelector("#modal-container");
+    modalContainer.classList.add("is visible");
+  }
+  document.querySelector("show-modal").addEventListener("click", () => {
+    showModal();
+  });
+
+  function showModal(title, text) {
+    let modalContainer = document.querySelector("#modal-container");
+
+    //clear all existing modal content
+    modalContainerConatiner.innerHTML = "";
+
+    let modal = document.createElement("div");
+    modal.classList.add("modal");
+  }
 
   //IIFE returning
   return {
