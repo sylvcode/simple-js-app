@@ -1,12 +1,11 @@
 // Click event to the button
-
 function addClickEvent(button, pokemonObject) {
   button.addEventListener("click", (event) => {
     pokemonRepository.showDetails(pokemonObject);
     // TODO
   });
 }
-
+//creates button for pokemon object
 function addListItem(pokemonObject) {
   //variables
   let pokemonList = document.querySelector(".pokemon-list");
@@ -58,6 +57,8 @@ let pokemonRepository = (function () {
     getAll: getAll,
     add: add,
     showDetails: showDetails,
+    loadList: loadList,
+    loadDetails: loadDetails,
   };
 })();
 
