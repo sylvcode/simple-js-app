@@ -1,6 +1,8 @@
 // Click event to the button
-function addClickEvent(button, pokeObjects) {
+
+function addClickEvent(button, pokemonObject) {
   button.addEventListener("click", (event) => {
+    pokemonRepository.showDetails(pokemonObject);
     // TODO
   });
 }
@@ -46,16 +48,21 @@ let pokemonRepository = (function () {
   function getAll() {
     return pokemonList;
   }
+  // Get details from Pokemon & returns object{}
+  function showDetails(pokemon) {
+    loadDetails(pokemon).then(function () {});
+  }
 
   //IIFE returning
   return {
     getAll: getAll,
     add: add,
+    showDetails: showDetails,
   };
 })();
 
 async function loadList() {
-  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=5";
+  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=10";
   return fetch(apiUrl)
     .then(function (response) {
       return response.json();
