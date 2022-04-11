@@ -91,6 +91,7 @@ async function loadDetails(pokemon) {
     // console.log(details);
     pokemon.imgUrl = details.sprites.front_shiny;
     pokemon.height = details.height;
+
     // console.log(pokemon);
     pokemonRepository.add(pokemon);
   } catch (e) {
