@@ -1,4 +1,7 @@
 // modal function 
+
+
+
 let modal = (function () {
  
     let modalContainer = document.querySelector("#modal-container");
@@ -31,13 +34,13 @@ let modal = (function () {
   function hideModal() {
     mocalConatiner.classList.remove('is-visible');
   }
+  
 
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
       hideModal();
     }
   });
-
   modalContainer.addEventListener('click', (e) => {
     let target = e.target;
     if (target === modalContainer) {
@@ -46,8 +49,8 @@ let modal = (function () {
   });
   // modal ends here
   // return statement:
-  return {
-      showModal: showModal,
-      hideModal:hideModal,
-  };
+  document.querySelector('#show-modal').addEventListener('click', () => {
+    showModal('Modal title', 'This is the modal content!');
+  });
 })();
+
