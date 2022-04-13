@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8"/>
-    <title>Pokemon App</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-     <!--My style CSS-->
-     <link rel="stylesheet" type="text/css" href="css/styles.css">
-      <!--Favicon-->
-     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <meta charset="utf-8" />
+  <title>Pokemon App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--My style CSS-->
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <!--Favicon-->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
 </head>
+
 <body>
-  <nav> </nav>
-  <header> <h1> Pokedex App</h1></header>
- 
-    <div class="container">
-      <div class="modal-container"></div>
+  <header>
+    <h1> Pokedex App</h1>
+  </header>
+  <div class="container">
+    <button id='show-modal'>Show modal</button>
+    <div id='modal-container'>
       <div class="modal-title"></div>
-          <h1></h1>
-      <p></p> 
+      <h1></h1>
+      <p></p>
       <div class="modal-body"></div>
-  
       <ul class="pokemon-list">
         <div class="pokemon-button"></div>
-
       </ul>
       <!-- Polyfill-->
       <script src="js/promise-polyfill.js"></script>
       <scrip src="js/fetch-polyfill.js"></scrip>
+      <!--Modal-->
+      <script src="js/modal.js"></script>
       <!-- Javascript-->
-       <script src="js/scripts.js"></script>
+      <script src="js/scripts.js"></script>
     </div>
 
 </body>

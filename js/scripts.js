@@ -25,9 +25,9 @@ function addListItem(pokemonObject) {
 
 //Created pokemonRepo variable to hold what my IIFE will return
 let pokemonRepository = (function () {
-  let modalContainer = document.querySelector('#modal-container');
-  // the original array list including nested objects
+
   let pokemonList = [];
+  
   // pokemonRepository add Function only if pokemon is an Object
   function add(pokemon) {
     if (typeof pokemon === "object" && pokemon.name) {
@@ -51,18 +51,11 @@ let pokemonRepository = (function () {
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {});
   }
-  //showModal details
-  function showModal() {
-    let modalContainer = document.querySelector("#modal-container");
-    modalContainer.classList.add("is visible");
-  }
+ 
  // document.querySelector("show-modal").addEventListener("click", () => {
   //  showModal();
   //});
-
-  function showModal(title, text) {
     
-
   //IIFE returning
   return {
     getAll: getAll,
