@@ -81,7 +81,15 @@ let pokemonRepository = (function () {
     titleElement.innerText = title;
     let contentElement = document.createElement('p');
     contentElement.innerText = text;
+
+    modal.appendChild(closeButtonElement);
+    modal.appendChild(titleElement);
+    modal.appendChild(contentElement);
+    modal.appendChild(modal);
+
+    modalContainer.classList.add('is-visible');
   }
+  
 
   //IIFE returning
   return {
