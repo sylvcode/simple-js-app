@@ -35,6 +35,27 @@ let modal = (function () {
     mocalConatiner.classList.remove('is-visible');
   }
   
+  function showDialog(title, text) {
+      showModal(title, text);
+      //defining modalContainer:
+      let modalContainer = document.querySelector('#modal-container');
+      // add a confirm and cancel button to the modal:
+      let modal = modalContainer.querySelector('.modal');
+
+      let confirmButton = document.createElement('button');
+      confirmButton.classList.add('modal-confirm');
+      confirmButton.innerText = 'Confirm';
+
+      let cancelButton = document.createElement('button');
+      cancelButton.innerText = 'Cancel';
+
+      modal.appendChild(confirmButton);
+      modal.appendChild(cancelButton);
+
+      // User is supposed to be able to simply press Enter
+      confirmButton.focus();
+
+  }
 
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
