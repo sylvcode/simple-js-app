@@ -25,9 +25,9 @@ function addListItem(pokemonObject) {
 
 //Created pokemonRepo variable to hold what my IIFE will return
 let pokemonRepository = (function () {
+  let modalContainer = document.querySeelector('#modal-container');
   // the original array list including nested objects
   let pokemonList = [];
-
   // pokemonRepository add Function only if pokemon is an Object
   function add(pokemon) {
     if (typeof pokemon === "object" && pokemon.name) {
@@ -64,10 +64,23 @@ let pokemonRepository = (function () {
     let modalContainer = document.querySelector("#modal-container");
 
     //clear all existing modal content
-    modalContainerConatiner.innerHTML = "";
+    modalContainer.innerHTML = "";
 
     let modal = document.createElement("div");
     modal.classList.add("modal");
+
+    let closeButtonElement = document.createElement('button');
+
+    closeButtonElement.classList.add('modal-close');
+
+    closeButtonElement.innerText = 'close';
+
+    closeButtonElement.addEventListener('click', hideModal);
+
+    let titleElement = document.createElement('h1');
+    titleElement.innerText = title;
+    let contentElement = document.createElement('p');
+    contentElement.innerText = text;
   }
 
   //IIFE returning
