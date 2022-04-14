@@ -25,7 +25,6 @@ function addListItem(pokemonObject) {
 
 //Created pokemonRepo variable to hold what my IIFE will return
 let pokemonRepository = (function () {
-
   let pokemonList = [];
   
   // pokemonRepository add Function only if pokemon is an Object
@@ -51,11 +50,9 @@ let pokemonRepository = (function () {
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {});
   }
- 
  // document.querySelector("show-modal").addEventListener("click", () => {
   //  showModal();
   //});
-    
   //IIFE returning
   return {
     getAll: getAll,
