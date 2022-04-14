@@ -117,16 +117,15 @@ async function loadDetails(pokemon) {
 
 // Loading Data
 loadList().then(function () {
-   forEach() Loop / what HTML will display
- pokemonRepository.getAll().forEach(function (item) {
-   loadDetails(item).then(() => {
-     let allPokemons = pokemonRepository.getAll();
-     console.log(allPokemons);
+  // forEach() Loop / what HTML will display
+  pokemonRepository.getAll().forEach(function (item) {
+    loadDetails(item).then(() => {
+      let allPokemons = pokemonRepository.getAll();
+      console.log(allPokemons);
+    });
+    addListItem(item);
   });
-addListItem(item);
- });
 });
-
 
 
  //pokemonRepository.loadList().then(pokemonRepository.loadDetails);
