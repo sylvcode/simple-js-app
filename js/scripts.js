@@ -5,28 +5,9 @@ function addClickEvent(button, pokemonObject) {
     // TODO
   });
 }
-//creates button for pokemon object
-function addListItem(pokemonObject) {
-  //variables
-  let pokemonList = document.querySelector(".pokemon-list");
-
-  let listItem = document.createElement("li");
-  //setting innerText to be the Pokémon's name (forEach returns a Pokémon in each iteration).
-  let button = document.createElement("button");
-  // adding features and format to buttons
-  button.innerText = pokemonObject.name;
-  button.classList.add("pokemon-button");
-  // Changing DOM hierarchy
-  listItem.appendChild(button);
-  pokemonList.appendChild(listItem);
-  // adding event listener
-  addClickEvent(button, pokemonObject);
-}
-
 //Created pokemonRepo variable to hold what my IIFE will return
 let pokemonRepository = (function () {
   let pokemonList = [];
-  
   // pokemonRepository add Function only if pokemon is an Object
   function add(pokemon) {
     if (typeof pokemon === "object" && pokemon.name) {
@@ -46,24 +27,35 @@ let pokemonRepository = (function () {
   function getAll() {
     return pokemonList;
   }
+
+  //creates button for pokemon 
+function addListItem(pokemon) {
+pokemonRepository.loadDetails(pokemon).then(function () {
+
+  //variables
+  let pokemonList = document.querySelector(".pokemon-list");
+
+  let listItem = document.createElement("li");
+  //setting innerText to be the Pokémon's name (forEach returns a Pokémon in each iteration).
+  let button = document.createElement("button");
+  // adding features and format to buttons
+  button.innerText = pokemon.name;
+  button.classList.add("pokemon-button");
+  // Changing DOM hierarchy
+  listItem.appendChild(button);
+  pokemonList.appendChild(listItem);
+  // adding event listener
+  addClickEvent(button, pokemon);
+})
+}
+
   // Get details from Pokemon & returns object{}
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {});
   }
- // document.querySelector("show-modal").addEventListener("click", () => {
-  //  showModal();
-  //});
-  //IIFE returning
-  return {
-    getAll: getAll,
-    add: add,
-    showDetails: showDetails,
-    loadList: loadList,
-    loadDetails: loadDetails,
-  };
-})();
 
-async function loadList() {
+
+  async function loadList() {
   let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=10";
   return fetch(apiUrl)
     .then(function (response) {
@@ -84,6 +76,7 @@ async function loadList() {
     });
 }
 
+
 async function loadDetails(pokemon) {
   // console.log(pokemon);
   try {
@@ -100,16 +93,40 @@ async function loadDetails(pokemon) {
   }
 }
 
+ // document.querySelector("show-modal").addEventListener("click", () => {
+  //  showModal();
+  //});
+
+
+   //IIFE returning
+  return {
+    getAll: getAll,
+    add: add,
+    showDetails: showDetails,
+    loadList: loadList,
+    loadDetails: loadDetails,
+  };
+
+})();
+
+//pokemonRepository.loadList().then(function () {
+  //pokemonRepository.getAll().forEach(function(pokemon) {
+    //pokemonRepository.addListItem(pokemon);
+  //});
+//});
+
 // Loading Data
 loadList().then(function () {
-  // forEach() Loop / what HTML will display
-  pokemonRepository.getAll().forEach(function (item) {
-    loadDetails(item).then(() => {
-      let allPokemons = pokemonRepository.getAll();
-      console.log(allPokemons);
-    });
-    addListItem(item);
+   forEach() Loop / what HTML will display
+ pokemonRepository.getAll().forEach(function (item) {
+   loadDetails(item).then(() => {
+     let allPokemons = pokemonRepository.getAll();
+     console.log(allPokemons);
   });
+addListItem(item);
+ });
 });
 
-// pokemonRepository.loadList().then(pokemonRepository.loadDetails);
+
+
+ //pokemonRepository.loadList().then(pokemonRepository.loadDetails);
