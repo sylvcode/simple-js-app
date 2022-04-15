@@ -1,3 +1,4 @@
+//Main repository IIFE
 const pokemonRepository = (function () {
   let pokemonList = [];
 
@@ -28,7 +29,7 @@ const pokemonRepository = (function () {
   };
 })();
 
-
+// Fetching Pokemons
  async function fetchPokemons(limit = 10) {
   // let pokemons = [];
   let apiUrl = `https://pokeapi.co/api/v2/pokemon/?limit=${limit}`;
@@ -38,13 +39,11 @@ const pokemonRepository = (function () {
     })
     .then(function (json) {
       return json.results;
-
       // json.results.forEach(function (item) {
       //   let pokemon = {
       //     name: item.name,
       //     detailsUrl: item.url,
       //   };
-
       //   pokemons.push(pokemon);
       // });
     })
@@ -53,6 +52,7 @@ const pokemonRepository = (function () {
     });
 }
 
+//Loading Pokemons Details
 async function loadDetails(pokemon) {
   console.log(pokemon);
   try {
@@ -70,7 +70,6 @@ async function loadDetails(pokemon) {
   }
 }
  
-
 //pokemonRepository.loadList().then(function () {
   //pokemonRepository.getAll().forEach(function(pokemon) {
     //pokemonRepository.addListItem(pokemon);
