@@ -7,7 +7,7 @@ window.addEventListener("keydown", (e) => {
     hideModal();
   }
 });
-//remove if visible
+
 function hideModal() {
   modalContainer.classList.remove("is-visible");
 }

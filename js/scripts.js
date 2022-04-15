@@ -1,4 +1,3 @@
-//Main repository IIFE
 const pokemonRepository = (function () {
   let pokemonList = [];
 
@@ -7,7 +6,7 @@ const pokemonRepository = (function () {
     return pokemonList;
   }
 
-   // pokemonRepository add Function only if pokemon is an Object
+  // pokemonRepository add Function only if pokemon is an Object
   function add(pokemon) {
     if (typeof pokemon === "object" && pokemon.name) {
       for (let i = 0; i <= pokemonList.length; i++) {
@@ -29,8 +28,7 @@ const pokemonRepository = (function () {
   };
 })();
 
-// Fetching Pokemons
- async function fetchPokemons(limit = 10) {
+async function fetchPokemons(limit = 10) {
   // let pokemons = [];
   let apiUrl = `https://pokeapi.co/api/v2/pokemon/?limit=${limit}`;
   return fetch(apiUrl)
@@ -39,11 +37,13 @@ const pokemonRepository = (function () {
     })
     .then(function (json) {
       return json.results;
+
       // json.results.forEach(function (item) {
       //   let pokemon = {
       //     name: item.name,
       //     detailsUrl: item.url,
       //   };
+
       //   pokemons.push(pokemon);
       // });
     })
@@ -52,7 +52,6 @@ const pokemonRepository = (function () {
     });
 }
 
-//Loading Pokemons Details
 async function loadDetails(pokemon) {
   console.log(pokemon);
   try {
@@ -69,6 +68,7 @@ async function loadDetails(pokemon) {
     console.error(e);
   }
 }
+
  
 //pokemonRepository.loadList().then(function () {
   //pokemonRepository.getAll().forEach(function(pokemon) {
