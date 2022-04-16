@@ -33,11 +33,17 @@ function showModal(pokemonObj) {
   let weightElement = document.createElement("p");
   weightElement.innerText = "weight: " + pokemonObj.weight;
 
+  let imgElement = document.createElement("img");
+  imgElement.src = pokemonObj.imageUrl;
+  imgElement.alt = pokemonObj.name;
+  
+
   modal.appendChild(closeButtonElement);
   // modal.appendChild(imageElement);
   modal.appendChild(titleElement);
   modal.appendChild(heightElement);
   modal.appendChild(weightElement);
+  modal.appendChild(imgElement);
   //  modal.appendChild(typeElement);
   modalContainer.appendChild(modal);
   //  finally adds .is-visible class to modal container to appear
@@ -57,7 +63,6 @@ modalContainer.addEventListener("click", (e) => {
 //creates button for pokemon
 function addListItem(pokemon) {
   let pokemonList = document.querySelector(".pokemon-list");
-  console.log(pokemonList);
   let listPokemon = document.createElement("li");
   //setting innerText to be the Pokémon's name (forEach returns a Pokémon in each iteration).
   let button = document.createElement("button");

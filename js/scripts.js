@@ -1,3 +1,4 @@
+
 const pokemonRepository = (function () {
   let pokemonList = [];
 
@@ -28,7 +29,7 @@ const pokemonRepository = (function () {
   };
 })();
 
-async function fetchPokemons(limit = 10) {
+async function fetchPokemons(limit = 8) {
   // let pokemons = [];
   let apiUrl = `https://pokeapi.co/api/v2/pokemon/?limit=${limit}`;
   return fetch(apiUrl)
@@ -53,7 +54,6 @@ async function fetchPokemons(limit = 10) {
 }
 
 async function loadDetails(pokemon) {
-  console.log(pokemon);
   try {
     const response = await fetch(pokemon.url);
     const item = await response.json();
@@ -69,13 +69,3 @@ async function loadDetails(pokemon) {
   }
 }
 
- 
-//pokemonRepository.loadList().then(function () {
-  //pokemonRepository.getAll().forEach(function(pokemon) {
-    //pokemonRepository.addListItem(pokemon);
-  //});
-//});
-
-// Loading Data
-
- //pokemonRepository.loadList().then(pokemonRepository.loadDetails);

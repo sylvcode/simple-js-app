@@ -29,7 +29,9 @@
     <script>
       fetchPokemons().then(function (pokemons) {
         for (let i = 0; i <= pokemons.length; i++) {
+          if (!pokemons[i]) continue;
           loadDetails(pokemons[i]).then(function (detailedPokemon) {
+            console.log(detailedPokemon)
             pokemonRepository.add(detailedPokemon);
             addListItem(detailedPokemon);
           });
