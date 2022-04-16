@@ -29,7 +29,7 @@ const pokemonRepository = (function () {
   };
 })();
 
-async function fetchPokemons(limit = 8) {
+async function fetchPokemons(limit = 15) {
   // let pokemons = [];
   let apiUrl = `https://pokeapi.co/api/v2/pokemon/?limit=${limit}`;
   return fetch(apiUrl)
