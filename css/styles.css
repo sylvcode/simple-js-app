@@ -152,13 +152,13 @@ button {
   text-decoration: underline;
 }
 
-.modal h1 {
+/*  .modal h1 {
   margin-top: 0;
 }
 
 .modal p {
   margin-bottom: 0;
-}
+}*/
 
 #modal-container {
   display: none;
@@ -167,4 +167,10 @@ button {
 #modal-container.is-visible {
   /* CSS for modal container - add your own desired CSS styles here */
   display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  height:100%;
 }

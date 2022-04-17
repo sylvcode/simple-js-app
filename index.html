@@ -12,33 +12,33 @@
 </head>
 
 <body>
+  <div id="modal-container"></div>
   <div class="container">
     <!-- <button id="show-modal">Show modal</button>
     <button id="show-dialog">Show dialog</button> -->
     <div class="modal-title"></div>
     <div class="modal-body"></div>
     <ul class="pokemon-list"></ul>
-    <div id="modal-container"></div>
-
-    <!-- Polyfill-->
-    <script src="js/promise-polyfill.js"></script>
-    <script src="js/fetch-polyfill.js"></script>
-    <!-- Javascript-->
-    <script src="js/modal.js"></script>
-    <script src="js/scripts.js"></script>
-    <script>
-      fetchPokemons().then(function (pokemons) {
-        for (let i = 0; i <= pokemons.length; i++) {
-          if (!pokemons[i]) continue;
-          loadDetails(pokemons[i]).then(function (detailedPokemon) {
-            console.log(detailedPokemon)
-            pokemonRepository.add(detailedPokemon);
-            addListItem(detailedPokemon);
-          });
-        }
-      });
-    </script>
   </div>
+
+  <!-- Polyfill-->
+  <script src="js/promise-polyfill.js"></script>
+  <script src="js/fetch-polyfill.js"></script>
+  <!-- Javascript-->
+  <script src="js/modal.js"></script>
+  <script src="js/scripts.js"></script>
+  <script>
+    fetchPokemons().then(function (pokemons) {
+      for (let i = 0; i <= pokemons.length; i++) {
+        if (!pokemons[i]) continue;
+        loadDetails(pokemons[i]).then(function (detailedPokemon) {
+          console.log(detailedPokemon)
+          pokemonRepository.add(detailedPokemon);
+          addListItem(detailedPokemon);
+        });
+      }
+    });
+  </script>
 </body>
 
 </html>
