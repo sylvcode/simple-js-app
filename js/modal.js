@@ -32,40 +32,31 @@ function showModal(pokemonObj) {
 
   let weightElement = document.createElement("p");
   weightElement.innerText = "weight: " + pokemonObj.weight;
-
-  let imgElement = document.createElement("img");
-  imgElement.src = pokemonObj.imageUrl;
-  imgElement.alt = pokemonObj.name;
-  
+  let pokemonImg = document.createElement("img");
+  pokemonImg.src = pokemonObj.imageUrl;
 
   modal.appendChild(closeButtonElement);
-  // modal.appendChild(imageElement);
   modal.appendChild(titleElement);
   modal.appendChild(heightElement);
   modal.appendChild(weightElement);
-  modal.appendChild(imgElement);
-  //  modal.appendChild(typeElement);
+  modal.appendChild(pokemonImg);
   modalContainer.appendChild(modal);
-  //  finally adds .is-visible class to modal container to appear
   modalContainer.classList.add("is-visible");
 }
 
 modalContainer.addEventListener("click", (e) => {
-  console.log(e, "was clicked");
   // Since this is also triggered when clicking INSIDE the modal
   // We only want to close if the user clicks directly on the overlay
   let target = e.target;
-  console.log(target);
-  console.log(modalContainer);
   if (target === modalContainer) {
-   hideModal();
+    hideModal();
   }
-  
 });
 
 //creates button for pokemon
 function addListItem(pokemon) {
   let pokemonList = document.querySelector(".pokemon-list");
+  console.log(pokemonList);
   let listPokemon = document.createElement("li");
   //setting innerText to be the Pokémon's name (forEach returns a Pokémon in each iteration).
   let button = document.createElement("button");
