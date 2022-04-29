@@ -1,4 +1,4 @@
-let modalContainer = document.querySelector("#modal-content");
+let modalContent = document.querySelector("#modal-content");
 
 //  eventListener to window for keyboard input esc
 window.addEventListener("keydown", (e) => {
@@ -55,19 +55,15 @@ modalContent.addEventListener("click", (e) => {
 
 //creates button for pokemon
 function addListItem(pokemon) {
-  let pokemonList = document.querySelector(".pokemon-list");
-  console.log(pokemonList);
+  let pokemonList = document.querySelector(".list-group");
   let listPokemon = document.createElement("li");
-  //setting innerText to be the Pokémon's name (forEach returns a Pokémon in each iteration).
+  listPokemon.classList.add("list-group-item");
   let button = document.createElement("button");
-  // adding features and format to buttons
   button.innerText = pokemon.name;
-  button.classList.add("pokemon-button");
+  button.classList.add("btn", "btn-primary", "pokemon-button");
   // Changing DOM hierarchy
+  button.setAttribute("data-toggle", "modal");
+  button.setAttribute("data-target", "#pokemonModal");
   listPokemon.appendChild(button);
   pokemonList.appendChild(listPokemon);
-
-  button.addEventListener("click", (_) => {
-    showModal(pokemon);
-  });
 }
