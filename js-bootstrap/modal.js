@@ -4,7 +4,7 @@ let modalBody = document.querySelector(".modal-body");
 //Global function
 function editModalContent(pokemon) {
   modalTitle.innerText = pokemon.name;
-  modalBody.innerHTML = `<p>${pokemon.height}</p> <p>${pokemon.weight}</p>`;
+  modalBody.innerHTML = `<p>${pokemon.height}</p> <p>${pokemon.weight}</p> <p>${pokemon.type}</p>`;
 }
 //creates button for pokemon
 function addListItem(pokemon) {
@@ -13,7 +13,7 @@ function addListItem(pokemon) {
   listPokemon.classList.add("list-group-item");
   let button = document.createElement("button");
   ///calling the global function
-  button.addEventListener("click", editModalContent(pokemon));
+  button.addEventListener("click", () => editModalContent(pokemon));
   button.innerText = pokemon.name;
   button.classList.add("btn", "btn-primary", "pokemon-button");
   // Changing DOM hierarchy
