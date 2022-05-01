@@ -1,8 +1,8 @@
 let modalTitle = document.querySelector("#pokemonModalLabel");
 let modalBody = document.querySelector(".modal-body");
 
-let modalImage = document.querySelector(".modal-image");
-modalImage.attr("src", pokemon.imageUrl);
+// let modalImage = document.querySelector(".modal-image");
+// modalImage.attr("src", pokemon.imageUrl);
 
 //Global function
 function editModalContent(pokemon) {
@@ -10,7 +10,7 @@ function editModalContent(pokemon) {
   modalBody.innerHTML = `<p>🧨 Height: ${pokemon.height} m</p> 
   <p>💣 Weight: ${pokemon.weight} kg</p>
    <p>🔋 Type: ${pokemon.type}</p>`;
-  modalImage.innerText = `<img ${pokemon.imageUrl}/>`;
+  // modalImage.innerText = `<img ${pokemon.imageUrl}/>`;
 }
 
 //creates button for pokemon
