@@ -23,8 +23,9 @@
 <nav class="navbar navbar-light bg-light justify-content-center">
   <a class="navbar-brand gradient">Pokemon</a>
   <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    <input class="form-control mr-sm-2" id="myInput" onkeyup="searchPokemon()" type="search" placeholder="Search"
+      aria-label="Search">
+    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search Pokemon</button>
   </form>
 </nav>
 
@@ -40,12 +41,6 @@
           </button>
         </div>
         <div class="modal-body text-capitalize">
-          <p></p>
-          <p></p>
-          <p></p>
-        </div>
-        <div class="modal-image">
-          <img src=" ">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-light" data-dismiss="modal">
@@ -59,11 +54,10 @@
   <div class="container-md text-center">
     <h1>Pokédex</h1>
     <div class="row">
-      <div class="col">
-        <ul class="list-group 
-        justify-content-center" data-toggle="modal" data-target="#pokemonModal"></ul>
-        </ul>
-      </div>
+
+      <ul class="list-group justify-content-center">
+      </ul>
+
     </div>
 
   </div>
