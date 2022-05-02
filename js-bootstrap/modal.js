@@ -1,3 +1,4 @@
+//Selecting from the HTML file
 let modalTitle = document.querySelector("#pokemonModalLabel");
 let modalBody = document.querySelector(".modal-body");
 
@@ -14,7 +15,7 @@ function editModalContent(pokemon) {
 //creates button for pokemon
 function addListItem(pokemon) {
   let pokemonList = document.querySelector(".list-group");
-
+  // Styling css from bootstrap
   let listPokemon = document.createElement("li");
   listPokemon.classList.add(
     "group-list-item",

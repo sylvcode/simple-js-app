@@ -5,12 +5,40 @@
   --focus-outer-color: #ffb199;
 }
 
-ul {
-}
-
 body {
   background-color: #fcfafa;
 }
+
+header {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+li {
+  padding: 1% 1% 1% 1%;
+}
+
+h3 {
+  font-family: "Pacifico";
+  font-size: 14px;
+  text-align: center;
+}
+/*------------------------------------*\
+  #Search Bar
+\*------------------------------------*/
+
+.form-control:focus {
+  box-shadow: 0 0 0 1.5px var(--focus-inner-color),
+    0 0 0 0.2rem var(--focus-outer-color);
+}
+
+.title {
+  font-family: "Pacifico";
+}
+
+/*------------------------------------*\
+  #BUTTONS
+\*------------------------------------*/
 
 button.btn-danger {
   background: linear-gradient(180deg, #ff7147, #e0417f);
@@ -40,12 +68,27 @@ button.btn-danger:hover {
   transform: translate(15px);
 }
 
-li {
-  padding: 1% 1% 1% 1%;
+button.btn-secondary {
+  background: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+  border-radius: 50px;
+  transition: all 0.35s;
+  background: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+  width: 90px;
+  height: 35px;
+  letter-spacing: 4px;
+}
+
+button.btn-secondary:hover {
+  transition: transform 0.4s ease-out;
+  transform: translate(15px);
+}
+
+button.btn-light {
+  background: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
 }
 
 /*------------------------------------*\
-  #Pokemon Image
+  #Pokemon Modal Image
 \*------------------------------------*/
 
 @keyframes swing {
@@ -73,30 +116,11 @@ img {
   animation: swing 5s infinite ease-in-out;
 }
 
-button.btn-secondary {
-  background: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
-  border-radius: 50px;
-  transition: all 0.35s;
-  background: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
-  width: 90px;
-  height: 35px;
-  letter-spacing: 4px;
-}
+/*------------------------------------*\
+  #Footer
+\*------------------------------------*/
 
-button.btn-secondary:hover {
-  transition: transform 0.4s ease-out;
-  transform: translate(15px);
-}
-
-button.btn-light {
-  background: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
-}
-
-.form-control:focus {
-  box-shadow: 0 0 0 1.5px var(--focus-inner-color),
-    0 0 0 0.2rem var(--focus-outer-color);
-}
-
-.gradient {
-  font-family: "Pacifico";
+footer {
+  padding-top: 30px;
+  padding-bottom: 20px;
 }
