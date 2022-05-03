@@ -67,3 +67,25 @@ async function loadDetails(pokemon) {
     console.error(e);
   }
 }
+
+function searchPokemon() {
+  //declare variables
+  var input, filter, ul, li, i, button, txtValue;
+  // selecting from the HTML file
+  input = document.getElementById("myInput");
+  // Not sensitive to a users input
+  filter = input.value.toUpperCase();
+  // selecting from the HTML file
+  ul = document.getElementById("myUl");
+  li = ul.getElementsByTagName("li");
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    button = li[i].getElementsByTagName("button")[0];
+    txtValue = button.textContent || button.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}

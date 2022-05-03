@@ -26,7 +26,7 @@
   <nav class="navbar navbar-light bg-light justify-content-center">
     <a class="navbar-brand title">Pokemon</a>
     <form class="form-inline">
-      <input class="form-control mr-sm-2" id="myInput" onkeyup="searchPokemon()" type="search" placeholder="Search"
+      <input class="form-control mr-sm-2" id="myInput" onkeyup="searchPokemon()" type="text" placeholder="Search"
         aria-label="Search">
       <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search Pokemon</button>
     </form>
@@ -60,8 +60,8 @@
     <div class="container-md text-center">
       <h1></h1>
       <div class="list-container">
-        <div class="row list-group flex-row flex-wrap justify-content-around list-unstyled">
-        </div>
+        <ul class="row list-group flex-row flex-wrap justify-content-around list-unstyled" id="myUl">
+        </ul>
       </div>
     </div>
   </div>
