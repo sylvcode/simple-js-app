@@ -1,0 +1,93 @@
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+:root {
+  --focus-inner-color: #ff0844;
+  --focus-outer-color: #ffb199;
+}
+body {
+  background-color: #fcfafa;
+}
+header {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+li {
+  padding: 1% 1% 1% 1%;
+}
+h3 {
+  font-family: Pacifico;
+  font-size: 14px;
+  text-align: center;
+}
+.form-control:focus {
+  box-shadow: 0 0 0 1.5px var(--focus-inner-color),
+    0 0 0 0.2rem var(--focus-outer-color);
+}
+.title {
+  font-family: Pacifico;
+}
+button.btn-danger {
+  background: linear-gradient(180deg, --focus-inner-color, --focus-outer-color);
+  font-size: 1rem;
+  color: #fff;
+  padding: 1rem 2rem;
+  line-height: 1rem;
+  will-change: transform, filter;
+  float: none;
+  margin: 0;
+  transition: all 0.15s ease-out;
+  height: auto;
+  border-radius: 70px;
+  overflow: hidden;
+  display: block;
+  margin: 0 auto;
+  display: block;
+  transform: rotateX(0) rotateY(0) scale(1);
+  filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.3));
+  font-weight: 500;
+  perspective-origin: 0 0;
+  letter-spacing: 0;
+}
+button.btn-danger:hover {
+  transition: transform 0.4s ease-out;
+  transform: translate(15px);
+}
+button.btn-secondary {
+  background: linear-gradient(to top, --focus-inner-color, --focus-outer-color);
+  border-radius: 50px;
+  transition: all 0.35s;
+  background: linear-gradient(to top, --focus-inner-color, --focus-outer-color);
+  width: 90px;
+  height: 35px;
+  letter-spacing: 4px;
+}
+button.btn-secondary:hover {
+  transition: transform 0.4s ease-out;
+  transform: translate(15px);
+}
+button.btn-light {
+  background: linear-gradient(to top, --focus-inner-color, --focus-outer-color);
+}
+@keyframes swing {
+  0%,
+  100% {
+    transform: rotate(-30deg);
+  }
+  20% {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+  80% {
+    transform: scale(0.95);
+  }
+}
+img {
+  height: 150px;
+  width: 150px;
+  animation: swing 5s infinite ease-in-out;
+}
+footer {
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
